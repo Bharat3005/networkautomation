@@ -5,7 +5,7 @@ import time
 import datetime
 import schedule #schedule to handle script schedule
 
-def job():
+def Backup():
 
     TNOW = datetime.datetime.now().replace(microsecond=0)
     IP_LIST = open('15_devices')
@@ -37,7 +37,7 @@ def job():
         SAVE_FILE.write(output)
         SAVE_FILE.close
         print ('Finished config backup')
-schedule.every().minute.at(":00").do(job)
+schedule.every().minute.at(":00").do(Backup)
 
 while True:
     schedule.run_pending()
