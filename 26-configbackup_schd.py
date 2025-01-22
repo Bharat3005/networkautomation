@@ -14,7 +14,7 @@ def Backup():
         RTR = {
         'ip':   IP,
         'username': 'bharatg',
-        'password': '', #device password 
+        'password': 'Nyk@@123#', #device password 
         'device_type': 'cisco_ios',
         }
 
