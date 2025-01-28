@@ -24,6 +24,7 @@ with open('# device_ip', 'r') as devices:
         if status == 'up':
             print('Interface is up finishing the script')
         else:
+            print('###making backup interface UP###')
             config_commands= ['int eth 0/1', 'no shutdown']
             output = net_connect.send_config_set(config_commands)
             print(output)
