@@ -19,12 +19,13 @@ device = driver(hostname='10.10.10.1', username='cisco', password=password,) #na
 device.open()
 print("Connected successfully with device")
 
-show_commands = device.cli(['show ip int br', 'show version'])
+show_commands = device.cli(['show ip int br', 'show version']) ### naplam cli method to send the configuration on the device
 print(show_commands)
-print(show_commands['show ip int br'])
+print(show_commands['show ip int br']) # printing output for sh ip int br command
 
-show_ver = show_commands['show version']
+show_ver = show_commands['show version'] 
 
+### Regex for collecting the specific values from the show version output ###
 version_match = version_pattern.search(show_ver)
 print('IOS Version'.ljust(18) + ': ' + version_match.group(1))
 
@@ -38,5 +39,6 @@ uptime_match = uptime_pattern.search(show_ver)
 print('Host Name '.ljust(18) + ': ' + uptime_match.group(1))
 print('Device Uptime '.ljust(18) + ': ' + uptime_match.group(2))
 
+### Connection close ###
 device.close()
 print("Disconnected from the device")
